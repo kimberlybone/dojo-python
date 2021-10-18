@@ -1,1 +1,16 @@
 <h1>This is the todo page.</h1>
+<!-- <ul>
+    <li>todo item A</li>
+    <li>todo item B</li>
+</ul> -->
+
+<ul>
+    {% for todo_item in all_items %}
+    <li>{{todo_item.content}}</li>
+    {% endfor %}
+</ul>
+
+<form action="/addTodo/" method="post">{% csrf_token %}
+    <input type="text" name="content">
+    <input type="submit" value="Add">
+</form>
